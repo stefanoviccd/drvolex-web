@@ -1,0 +1,141 @@
+*{
+  font-family: 'Manrope', sans-serif;
+}
+.mapa_img{
+  margin-top: 70px;
+  height: 35em;
+  
+
+}
+.contactCover{
+  background-image: url('pricinovic_mapa.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 6rem;
+  margin-bottom: 10%;
+  padding-top: 10em;
+  height: 400px;
+
+  
+}
+.short-text{
+  margin-left: 2em;
+}
+
+.contact_info{
+  width:45em;
+  height: 17em;
+  margin: 1% auto !important;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+
+  background-color:black;
+  opacity: 70%;
+
+  margin-left: 20em;
+  margin-bottom: 15% !important;
+
+}
+.icon{
+  margin: 10%;
+  width: 100px;
+  height: 100px;
+
+}
+.icon-tel{
+  margin: 20%;
+  width: 80px;
+  height: 80px;
+
+}
+.icon-mail{
+  
+  margin-top: 10%;
+  margin-left: 25%;
+  
+  width: 100px;
+  height: 100px;
+
+}
+.details{
+  color: white;
+  margin-left: 30px;
+  display: grid;
+  grid-template-rows: 50% 50%;
+
+}
+.scale-up-hor-center {
+	-webkit-animation: scale-up-hor-center 0.9s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-hor-center 0.9s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+@-webkit-keyframes scale-up-hor-center {
+  0% {
+    -webkit-transform: scaleX(0.4);
+            transform: scaleX(0.4);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+@keyframes scale-up-hor-center {
+  0% {
+    -webkit-transform: scaleX(0.4);
+            transform: scaleX(0.4);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+@media screen and (max-width: 500px) {
+  .contactCover{
+    margin-bottom: 30em;
+  }
+ .send-mail-btn{
+  margin-left: 5rem;
+ }
+  .contact_info{
+    display: block;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 300px;
+    height: 35em;
+
+  }
+  .email-text{
+    margin-left: 0 !important;
+  }
+ .details {
+   display: block;
+   height: 10em;
+
+ }
+.icon{
+   margin-left: 20%;
+ }
+ .icon-tel{
+  margin-left: 23%;
+ }
+ .details div{
+   size: 50%;
+   margin:  0 auto;
+ }
+ .icon-mail{
+  margin-top: 3rem;
+ }
+  
+  
+}
+.send-mail-btn{
+  background-color: black;
+  border: 1px solid gray;
+  width: 6rem;
+  height: 2rem;
+  border-radius: 7px;
+  margin-top: 0.7rem;
+
+ }
+ .send-mail-btn a{
+  color: white !important;
+ }

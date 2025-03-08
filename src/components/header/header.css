@@ -1,0 +1,48 @@
+.header-img{
+    height:65vh;
+       margin-top: 2rem;
+        
+    }
+    .header-img-text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        background-color: black;
+        padding: 5rem;
+        border-radius: 10px;
+        opacity: 30%;
+        font-family: 'Manrope', sans-serif;
+        text-align: center;
+    }
+    
+    .name{
+        font-size: 50px;
+        letter-spacing: 30px;
+    }
+    .subtitle{
+        margin-top:10px;
+        font-size: 30px;
+        letter-spacing: 8px;
+    }
+    .company_brand{
+        overflow-x: hidden;
+        padding-top: 1rem
+    }
+    
+    
+    @media screen and (max-width: 500px){
+        .header-img-text{
+            width: 100%;
+            display: block;
+            margin-left:  auto;
+            margin-right: auto;
+        
+        }
+        .header-img-text b{
+          font-size: 8vw;
+        
+        }
+    
+    }
