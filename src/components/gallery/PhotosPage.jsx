@@ -1,88 +1,90 @@
 import React, {useState, useEffect} from 'react';
+import { useLocation } from 'react-router-dom';
 import Divider from '../divider/Divider';
 import Fancybox from '../Fancybox';
 import "./photosPage.css";
 import { fetchImageUrls } from '../../service/images/image-service';
+import { GrCaretPrevious } from "react-icons/gr";
+import { GrCaretNext } from "react-icons/gr";
+import Loading from '../loader/Loading';
 
-function PhotosPage({photos, alt, page}) {
+
+function PhotosPage({folderName}) {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
-  
-  var [this_page, setPage]=useState(page);
-  var [prev, setPre]=useState("<");
-  var [next, setNext]=useState(">");
-  useEffect(() => {
-    const getImages = async () => {
+  const [nextCursor, setNextCursor] = useState(null);
+  const [page, setPage] = useState(1); // Track current page
+  const [pageSize, setPageSize] = useState(12); // Set page size
+
+  var [prev, setPrev]=useState(<GrCaretPrevious />);
+  var [next, setNext]=useState(<GrCaretNext />);
+
+
+  const fetchImages = async () => {
+    try {
       setLoading(true);
-      const imageUrls = await fetchImageUrls("drvolex/kitchens/");
-      setImages(imageUrls)
+      const response = await fetchImageUrls(folderName, nextCursor, pageSize);
+
+      setImages(response.images); // Set images
+      setNextCursor(response.nextCursor); // Set next cursor for pagination
       setLoading(false);
-    };
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+  // Fetch images on component mount and page change
+  useEffect(() => {
+    fetchImages();
+  }, [page]); 
 
-    getImages();
-  }, [""]);
+  // Handle pagination button clicks
+  const handleNextPage = (e) => {
+    if (nextCursor) {
+      setPage(page + 1);
+    } else {
+      e.preventDefault()
+    }
+  };
 
+  const handlePreviousPage = (e) => {
+      if (page > 1) {
+      setPage(page - 1);
+    } else {
+      e.preventDefault()
+    }
+  };
 
-function handlePrev(e){
-e.preventDefault();
-setPage(Math.max(this_page-1, 1));
-console.log(this_page);
-}
-
-function handleNext(e){
-  e.preventDefault();
-  setPage(Math.min(this_page+1, Math.ceil(photos.length/12)));
-  
-}
-function checkPage(){
-  if(Math.ceil(photos.length/12)+1< this_page){
-    setPage(1)
-  }
-}
-checkPage();
-
-if (loading) {
-  return <div>Loading images...</div>;
-}
+ if (loading) {
   return  <div className='fancybox'>
     <Divider></Divider>
-    <ul className="pagination">
+    <Loading  />
+  </div>
+ }
+
+  return  <div className='fancybox'>
+    <Divider></Divider>
+    <div className="container">
+  <Fancybox className="fancybox">
+  {
+    images.map(img=>(
+        <div className="item"><a  data-fancybox="gallery" href={img.url} ><img src={img.url} alt={img.display_name} className="gallery-image"></img></a></div>
+      ))}
+     
+  </Fancybox>
+</div>
+<ul className="pagination">
     <li className="page-item">
-              <a href="#" className='page-link' onClick={(e)=>handlePrev(e)}>
+              <a href="#" className='page-link' onClick={(e)=>handlePreviousPage(e)}>
                 {prev}
               </a>
           </li>
           <li className="page-item">
-              <a href="#" className='page-link' onClick={(e)=>handleNext(e)}>
+              <a href="#" className='page-link' onClick={(e)=>handleNextPage(e)}>
                 {next}
               </a>
           </li>
      
   </ul>
-  
-    <div className="container">
-<Fancybox className="fancybox">
-{
-photos.slice((this_page-1)*12, (this_page-1)*12+12).map(img=>(
-        <div className="item"><a  data-fancybox="gallery" href={img.name} ><img src={img.name} alt={alt} className="gallery-image"></img></a></div>
-
-      ))}
-     
-  </Fancybox>
- 
-</div>
-
-
-<div className="gallery">
-        {images.map((image, index) => (
-          <div key={index} className="image-item">
-            <img src={image} alt={`image-${index}`} style={{ width: '200px', height: 'auto', margin: '10px' }} />
-          </div>
-        ))}
-      </div>
-
-
-
 
 </div>;
   

@@ -8,7 +8,6 @@ import { FaSun } from "react-icons/fa";
 function Navbar(props) {
   const [toggleMenu, setToggleMenu] = useState(false)
   const toggleNav = () => {
-    console.log("Toogled!")
     setToggleMenu(!toggleMenu)
   }
   function toggle(e){
@@ -50,7 +49,6 @@ function Navbar(props) {
    </li>
       <li className="items"><a className="nav__link" href='/'>POČETNA</a></li>
       <li className="items"><a className="nav__link" href='/o_nama'>O NAMA</a></li>
-      <li className="items"><a className="nav__link" href='/masine'>OPREMA</a></li>
       <li className="items"><a className="nav__link" href='/galerija/kuhinje'>GALERIJA</a></li>
       <li className="items"><a className="nav__link" href='/kontakt' >KONTAKT</a></li>
       <li className='items mode'>

@@ -4,19 +4,15 @@
 .mapa_img{
   margin-top: 70px;
   height: 35em;
-  
-
 }
 .contactCover{
-  background-image: url('pricinovic_mapa.png');
+  background-image: url('map.png');
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: 6rem;
   margin-bottom: 10%;
   padding-top: 10em;
   height: 400px;
-
-  
 }
 .short-text{
   margin-left: 2em;
@@ -109,7 +105,6 @@
  .details {
    display: block;
    height: 10em;
-
  }
 .icon{
    margin-left: 20%;
@@ -124,7 +119,6 @@
  .icon-mail{
   margin-top: 3rem;
  }
-  
   
 }
 .send-mail-btn{

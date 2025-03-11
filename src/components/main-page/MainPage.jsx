@@ -19,23 +19,23 @@ function MainPage() {
         <div className='company_brand'>
             <h2 className='subtitle'>Izdvajamo iz ponude</h2>
             <div className='gallery'>
-<div className='gallery-img'><img className="glr-img" src="../ponuda/kuhinja_crop.jpg" alt='Drvolex kuhinje'></img>
+<div className='gallery-img'><img className="glr-img" src="https://res.cloudinary.com/drvolex/image/upload/v1741632913/kuhinja_crop_epze9g.jpg" alt='Drvolex kuhinje'></img>
 <div className="middle">
     <div className="text"><a className="stand-out-from-the-offer" href='/galerija/kuhinje'>Kuhinje</a><hr></hr></div>
   </div></div>
-<div className='gallery-img'><img  className="glr-img" src="../ponuda/kupatila_crop1.jpg" alt='Drvolex kupatila'></img>
+<div className='gallery-img'><img  className="glr-img" src="https://res.cloudinary.com/drvolex/image/upload/v1741632914/kupatila_crop1_z5zozu.jpg" alt='Drvolex kupatila'></img>
 <div className="middle">
     <div className="text"><a className="stand-out-from-the-offer" href='/galerija/kupatila'>Kupatila</a><hr></hr></div>
   </div></div>
-<div className='gallery-img'><img  className="glr-img" src="../ponuda/plakari_crop.jpg" alt='Drvolex plakari'></img>
+<div className='gallery-img'><img  className="glr-img" src="https://res.cloudinary.com/drvolex/image/upload/v1741632915/plakari_crop_g7tuzw.jpg" alt='Drvolex plakari'></img>
 <div className="middle">
     <div className="text"><a className="stand-out-from-the-offer" href='/galerija/plakari'>Plakari</a><hr></hr></div>
   </div></div>
-<div className='gallery-img'><img className="glr-img" src="../ponuda/police_crop.jpg" alt='Drvolex police'></img>
+<div className='gallery-img'><img className="glr-img" src="https://res.cloudinary.com/drvolex/image/upload/v1741632915/police_crop_y4jhkw.jpg" alt='Drvolex police'></img>
 <div className="middle">
     <div className="text"><a className="stand-out-from-the-offer" href='/galerija/police'>Police</a><hr></hr></div>
   </div></div>
-<div className='gallery-img'><img className="glr-img" src="../ponuda/rasveta_crop.jpg" alt='Drvolex kancelarijska rasveta'></img>
+<div className='gallery-img'><img className="glr-img" src="https://res.cloudinary.com/drvolex/image/upload/v1741632915/rasveta_crop_dm3qik.jpg" alt='Drvolex kancelarijska rasveta'></img>
 <div className="middle">
     <div className="text"><a className="stand-out-from-the-offer" href='/galerija/kancelarijskiProstor'>Kancelarijski prostor</a><hr></hr></div>
   </div></div>

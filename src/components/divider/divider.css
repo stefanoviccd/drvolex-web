@@ -1,9 +1,7 @@
 
 .tab{
     display: block;
-
     margin: 10% auto 1% auto;
-
   }
 
   .tab a{
@@ -41,6 +39,15 @@
     text-align: center;
   }
 
+
+
+  .activeLink{
+    text-decoration:overline;
+    text-decoration-color: black;
+ }
+ .active  {
+    border-bottom: 3px solid rgb(95,0,0);
+  }
   
    
 
