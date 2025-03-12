@@ -22,11 +22,11 @@
     margin-right: 15px;
     margin-bottom: 5%;
   }
-  @media (max-width: 768px){ 
+  @media (max-width: 500px){ 
     .nav-link-d {
       margin:1em auto !important;
       height: 3rem !important;
-      width: 5rem !important;
+      width: 6rem !important;
       display: block !important;
     }
   }
