@@ -26,14 +26,13 @@ function App() {
   const [theme, setTheme] = useState(
         localStorage.getItem('theme') || 'light'
       );
+    var items=document.getElementsByClassName("items");
       const toggleTheme = () => {
         if (theme === 'light') {
           setTheme('dark');
-          var items=document.getElementsByClassName("items");
           items.className="items items-dark";
         } else {
           setTheme('light');
-    var items= document.getElementsByClassName("items");
     items.classList.remove("items-dark");
     
     

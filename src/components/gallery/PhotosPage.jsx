@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import { useLocation } from 'react-router-dom';
 import Divider from '../divider/Divider';
 import Fancybox from '../Fancybox';
 import "./photosPage.css";
@@ -14,10 +13,11 @@ function PhotosPage({folderName}) {
   const [loading, setLoading] = useState(true);
   const [nextCursor, setNextCursor] = useState(null);
   const [page, setPage] = useState(1); // Track current page
-  const [pageSize, setPageSize] = useState(12); // Set page size
+  const pageSize =12; // Set page size
 
-  var [prev, setPrev]=useState(<GrCaretPrevious />);
-  var [next, setNext]=useState(<GrCaretNext />);
+
+  var [prev]=useState(<GrCaretPrevious />);
+  var [next]=useState(<GrCaretNext />);
 
 
   const fetchImages = async () => {

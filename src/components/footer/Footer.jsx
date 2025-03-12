@@ -1,5 +1,4 @@
 import React from 'react';
-import {RiMapPin2Line} from "react-icons/ri";
 import {SiGooglemaps} from "react-icons/si";
 import './footer.css';
 

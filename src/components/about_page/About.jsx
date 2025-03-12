@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "../about_page/about.css";
 
 import "./about.css";
 
 function About() {
-  var [modalClass, setModalClass] = useState("modal-closed slide-top");
-  var [cncImg, setCncImg] = useState("https://res.cloudinary.com/drvolex/image/upload/v1741633882/cnc_bhjilo.jpg");
-  var [obradaImg, setObradaImg] = useState("https://res.cloudinary.com/drvolex/image/upload/v1741633883/wood_processing_jcgkgu.jpg");
-  var [kantImg, setKantImg] = useState("https://res.cloudinary.com/drvolex/image/upload/v1741633883/kant_z6sm8i.jpg");
-  var [namestajImg, setNamestajImg] = useState("https://res.cloudinary.com/drvolex/image/upload/v1741458089/dom9_hybqo6.jpg");
+  const cncImg = "https://res.cloudinary.com/drvolex/image/upload/v1741633882/cnc_bhjilo.jpg";
+  const obradaImg = "https://res.cloudinary.com/drvolex/image/upload/v1741633883/wood_processing_jcgkgu.jpg";
+  const kantImg= "https://res.cloudinary.com/drvolex/image/upload/v1741633883/kant_z6sm8i.jpg";
+  const namestajImg = "https://res.cloudinary.com/drvolex/image/upload/v1741458089/dom9_hybqo6.jpg";
 
   const openMaps = () => {
     window.open(
