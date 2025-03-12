@@ -58,16 +58,6 @@ const Photo = ({ imageUrl, displayName }) => {
           onLoad={handleImageLoad}
           loading="lazy"
         />
-        <img
-          src={getBluredImageUrl(imageUrl)}
-          alt={displayName}
-          ref={imgRef}
-          className={`gallery-image image-thumbnail ${
-            isLoaded ? "hidden" : ""
-          }`}
-          loading="lazy"
-        />
-      
       </a>
     </div>
   );

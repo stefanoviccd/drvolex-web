@@ -25,7 +25,6 @@ function Header() {
             loading="lazy"
           />
           <div className="header-img-text">
-            {" "}
             <b className="name">DRVOLEX</b>
             <p className="subtitle">Gradimo poverenje.</p>
           </div>
