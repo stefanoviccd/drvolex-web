@@ -6,12 +6,14 @@ import "./photosPage.css";
 
 const Photo = ({ imageUrl, displayName }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const imgRef = useRef(null);
 
   const handleImageLoad = (e) => {
     setIsLoaded(true);
   };
 
+  // eslint-disable-next-line no-unused-vars
   function getBluredImageUrl(imgUrl) {
     const cloudinaryBaseUrl = "http://res.cloudinary.com/drvolex/image/upload/";
     const imgPath = imgUrl.replace(cloudinaryBaseUrl, "");
