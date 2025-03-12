@@ -4,10 +4,10 @@ import "../about_page/about.css";
 import "./about.css";
 
 function About() {
-  const cncImg = "https://res.cloudinary.com/drvolex/image/upload/v1741633882/cnc_bhjilo.jpg";
-  const obradaImg = "https://res.cloudinary.com/drvolex/image/upload/v1741633883/wood_processing_jcgkgu.jpg";
-  const kantImg= "https://res.cloudinary.com/drvolex/image/upload/v1741633883/kant_z6sm8i.jpg";
-  const namestajImg = "https://res.cloudinary.com/drvolex/image/upload/v1741458089/dom9_hybqo6.jpg";
+  const cncImg = "https://res.cloudinary.com/drvolex/image/upload/w_500,h_500,c_fill/v1741633882/cnc_bhjilo.jpg";
+  const obradaImg = "https://res.cloudinary.com/drvolex/image/upload/w_500,h_500,c_fill/v1741633883/wood_processing_jcgkgu.jpg";
+  const kantImg= "https://res.cloudinary.com/drvolex/image/upload/w_500,h_500,c_fill/v1741633883/kant_z6sm8i.jpg";
+  const namestajImg = "https://res.cloudinary.com/drvolex/image/upload/w_500,h_500,c_fill/v1741458089/dom9_hybqo6.jpg";
 
   const openMaps = () => {
     window.open(
@@ -101,7 +101,7 @@ function About() {
         <div className="services-img">
           <img src={namestajImg} alt="Drvolex usluge keksovanje"></img>{" "}
           <p className="services-btn">
-            Nameštaj<hr></hr>
+            Nameštaj po meri<hr></hr>
           </p>
         </div>
         <div className="services-img">

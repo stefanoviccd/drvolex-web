@@ -22,6 +22,7 @@ function Header() {
             className="header-img"
             src="https://res.cloudinary.com/drvolex/image/upload/v1741632485/photo_sajt_crop_aoa9wp.jpg"
             alt="v1741632485"
+            loading="lazy"
           />
           <div className="header-img-text">
             {" "}
@@ -35,6 +36,7 @@ function Header() {
             className="header-img"
             src="https://res.cloudinary.com/drvolex/image/upload/v1741632486/photo_sajt4_crop_odtytr.jpg"
             alt="v1741632486"
+            loading="lazy"
           />
         </div>
 
@@ -43,6 +45,7 @@ function Header() {
             className="header-img"
             src="https://res.cloudinary.com/drvolex/image/upload/v1741632486/photo_sajt6_crop_a3vrx0.jpg"
             alt="v1741632486"
+            loading="lazy"
           />
         </div>
       </Carousel>
