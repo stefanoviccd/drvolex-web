@@ -41,7 +41,7 @@ function Divider() {
         </NavLink>
         <NavLink
           className="nav-link-d"
-          activeClassName="active"
+          activeClassName="active" 
           to={"/galerija/police"}
           style={{ textDecoration: "none", color: "black" }}
         >

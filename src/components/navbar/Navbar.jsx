@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {AiOutlineMenu} from 'react-icons/ai';
 import { FaMoon } from "react-icons/fa";
 import { FaSun } from "react-icons/fa";
+import "./navbar.css"
 
 
 function Navbar(props) {
@@ -27,13 +28,15 @@ function Navbar(props) {
     if(window.innerWidth > 550){
       
       for (var i = document.links.length-1; i >= 0 ; i--) {
-       // for (var i = 0; i <document.links.length ; i++) {
  
         if (document.links[i].href === document.URL) {
             current = i;
         }
     }
-    document.links[current].className = 'nav__link active';
+    if (document.links[current].className === 'nav__link') {
+      document.links[current].className = 'nav__link active';
+    }
+
     }
     
     } );

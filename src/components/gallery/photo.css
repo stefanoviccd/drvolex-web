@@ -1,0 +1,23 @@
+
+.image-thumbnail {
+    width: 100%;
+    height: auto;
+    filter: blur(10px);
+    transition: opacity 0.5s ease-out;
+    opacity: 1;
+  }
+
+  .image-thumbnail.hidden {
+    opacity: 0;
+  }
+
+  .image-full {
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+  }
+  
+  .image-full.visible {
+    opacity: 1;
+  }

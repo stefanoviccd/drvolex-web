@@ -7,6 +7,7 @@ import { fetchImageUrls } from '../../service/images/image-service';
 import { GrCaretPrevious } from "react-icons/gr";
 import { GrCaretNext } from "react-icons/gr";
 import Loading from '../loader/Loading';
+import Photo from './Photo';
 
 
 function PhotosPage({folderName}) {
@@ -14,13 +15,11 @@ function PhotosPage({folderName}) {
   const [loading, setLoading] = useState(true);
   const [nextCursor, setNextCursor] = useState(null);
   const [page, setPage] = useState(1); // Track current page
-  const pageSize =12; // Set page size
+  const pageSize = 12; // Set page size
 
 
   var [prev]=useState(<GrCaretPrevious />);
   var [next]=useState(<GrCaretNext />);
-
-
   
   // Fetch images on component mount and page change
   useEffect(() => {
@@ -71,7 +70,7 @@ function PhotosPage({folderName}) {
   <Fancybox className="fancybox">
   {
     images.map(img=>(
-        <div className="item"><a  data-fancybox="gallery" href={img.url} ><img src={img.url} alt={img.display_name} className="gallery-image"></img></a></div>
+       <Photo imageUrl={img.url}></Photo>
       ))}
      
   </Fancybox>

@@ -1,81 +1,77 @@
-
-.container{display: grid;
+.container {
+  display: grid;
   margin-left: 1%;
   margin-right: 1%;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    justify-items: center;
+  justify-items: center;
   grid-gap: 0.3rem;
-margin-bottom:2%;}
-  
-  
-.item{width: 100%;
+  margin-bottom: 2%;
+}
+
+.item {
+  width: 100%;
   height: 300px;
   overflow: hidden;
-  background: #000;}
-  
-      
-  .gallery-image{opacity: 0.7;
+  background: #000;
+}
+
+.gallery-image {
+  opacity: 0.7;
   width: 100%;
-  height:100%;
-  transform: scale(1.0);
-  transition: transform 0.5s, opacity 0.5s;}
-  
-  
-.gallery-image:hover{ opacity: 0.8;
+  height: 100%;
+  transform: scale(1);
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.gallery-image:hover {
+  opacity: 0.8;
   transform: scale(1.03);
 }
-.page-item{
-display: inline;
-margin-left: 1rem;
-font-size: large;
+.page-item {
+  display: inline;
+  margin-left: 1rem;
+  font-size: large;
 }
-.pagination{
-margin-bottom: 10px;
+.pagination {
+  margin-bottom: 10px;
 }
-.fancybox{
-overflow-x: hidden !important;
-}
-
-
-
-
-.page-item  a {
-background-image: linear-gradient(
-  to right,
-  rgb(95,0,0),
-  #54b3d6 50%,
-  #000 50%
-);
-background-size: 200% 100%;
-background-position: -100%;
-display: inline-block;
-padding: 5px 0;
-position: relative;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
-transition: all 0.3s ease-in-out;
+.fancybox {
+  overflow-x: hidden !important;
 }
 
-.page-item  a:before {
-content: '';
-background: rgb(95,0,0);
-display: block;
-position: absolute;
-bottom: -3px;
-left: 0;
-width: 0;
-height: 3px;
-transition: all 0.3s ease-in-out;
+.page-item a {
+  background-image: linear-gradient(
+    to right,
+    rgb(95, 0, 0),
+    #54b3d6 50%,
+    #000 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 5px 0;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.page-item a:before {
+  content: "";
+  background: rgb(95, 0, 0);
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
 }
 
 .page-item a:hover {
-background-position: 0;
+  background-position: 0;
 }
 
 .page-item a:hover::before {
-width:100%;
+  width: 100%;
 }
-
- 
-
-  
