@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, {useState, useEffect} from 'react';
 import Divider from '../divider/Divider';
 import Fancybox from '../Fancybox';
@@ -20,21 +21,24 @@ function PhotosPage({folderName}) {
   var [next]=useState(<GrCaretNext />);
 
 
-  const fetchImages = async () => {
-    try {
-      setLoading(true);
-      const response = await fetchImageUrls(folderName, nextCursor, pageSize);
-
-      setImages(response.images); // Set images
-      setNextCursor(response.nextCursor); // Set next cursor for pagination
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-    }
-  };
+  
   // Fetch images on component mount and page change
   useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        setLoading(true);
+        const response = await fetchImageUrls(folderName, nextCursor, pageSize);
+  
+        setImages(response.images); // Set images
+        setNextCursor(response.nextCursor); // Set next cursor for pagination
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+      }
+    }; 
+
     fetchImages();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]); 
 
   // Handle pagination button clicks
