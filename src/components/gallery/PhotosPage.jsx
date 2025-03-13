@@ -27,7 +27,7 @@ function PhotosPage({folderName}) {
       try {
         setLoading(true);
         const response = await fetchImageUrls(folderName, nextCursor, pageSize);
-  
+        console.log("IMAGES: "+response.images)
         setImages(response.images); // Set images
         setNextCursor(response.nextCursor); // Set next cursor for pagination
         setLoading(false);
