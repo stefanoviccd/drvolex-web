@@ -12,7 +12,6 @@ const fetchImageUrls = async (folderName, cursor = "", pageSize = 10) => {
   
       const response = await fetch(url);
       const json = await response.json();
-      console.log("JSON IMAGES: "+json.images)
       
     return {
       images: json.images,

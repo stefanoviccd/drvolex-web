@@ -6,14 +6,12 @@ import "./photosPage.css";
 
 const Photo = ({ imageUrl, displayName }) => {
   const [isLoaded, setIsLoaded] = useState(false);
-  // eslint-disable-next-line no-unused-vars
   const imgRef = useRef(null);
 
   const handleImageLoad = (e) => {
     setIsLoaded(true);
   };
 
-  // eslint-disable-next-line no-unused-vars
   function getBluredImageUrl(imgUrl) {
     const cloudinaryBaseUrl = "http://res.cloudinary.com/drvolex/image/upload/";
     const imgPath = imgUrl.replace(cloudinaryBaseUrl, "");
@@ -60,6 +58,16 @@ const Photo = ({ imageUrl, displayName }) => {
           onLoad={handleImageLoad}
           loading="lazy"
         />
+        <img
+          src={getBluredImageUrl(imageUrl)}
+          alt={displayName}
+          ref={imgRef}
+          className={`gallery-image image-thumbnail ${
+            isLoaded ? "hidden" : ""
+          }`}
+          loading="lazy"
+        />
+      
       </a>
     </div>
   );
