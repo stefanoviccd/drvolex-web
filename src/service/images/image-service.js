@@ -6,15 +6,15 @@ const fetchImageUrls = async (folderName, cursor = "", pageSize = 10) => {
         params: { folderName, cursor, pageSize }
       });*/
       var url = '/.netlify/functions/proxy?folderName='+folderName+'&pageSize='+pageSize
-      if (cursor != null) {
+      if (cursor !== null) {
         url = url+'&cursor='+cursor;
       }
       // '&cursor='+cursor
       const response = await fetch(url);
       
     return {
-      images: response.json().data.images,
-      nextCursor: response.json().data.nextCursor,
+      images: response.json().images,
+      nextCursor: response.json().nextCursor,
     };
   } catch (error) {
     console.error("Error fetching images from host:", error);
