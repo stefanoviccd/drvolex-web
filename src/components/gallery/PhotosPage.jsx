@@ -7,6 +7,7 @@ import { fetchImageUrls } from '../../service/images/image-service';
 import { GrCaretPrevious } from "react-icons/gr";
 import { GrCaretNext } from "react-icons/gr";
 import Loading from '../loader/Loading';
+import Photo from './Photo'
 
 
 function PhotosPage({folderName}) {
@@ -69,16 +70,7 @@ function PhotosPage({folderName}) {
   <Fancybox className="fancybox">
   {
     images.map(img=>(
-       //<Photo imageUrl={img.url}></Photo>
-       <div className="item">
-       <a data-fancybox="gallery" href={img.url}>
-       <img
-           src={img.url}
-           alt=''
-           className="gallery-image"
-         />
-       </a>
-     </div>
+       <Photo imageUrl={img.url}></Photo>
       ))}
      
   </Fancybox>
