@@ -21,6 +21,7 @@ nav {
 li a {
   color: black !important;
   text-decoration: none !important;
+  display: block; 
 }
 .items {
   margin-right: 40px;
