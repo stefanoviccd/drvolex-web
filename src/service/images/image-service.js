@@ -5,7 +5,12 @@ const fetchImageUrls = async (folderName, cursor = "", pageSize = 10) => {
       /*const response = await axios.get('http://localhost:5000/fetch-images', {
         params: { folderName, cursor, pageSize }
       });*/
-      const response = await fetch('/.netlify/functions/proxy?folderName='+{folderName}+'&cursor='+{cursor}+'&pageSize='+pageSize);
+      var url = '/.netlify/functions/proxy?folderName='+folderName+'&pageSize='+pageSize
+      if (cursor != null) {
+        url = url+'&cursor='+cursor;
+      }
+      // '&cursor='+cursor
+      const response = await fetch(url);
       
     return {
       images: response.json().data.images,
