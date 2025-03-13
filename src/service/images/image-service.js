@@ -11,10 +11,11 @@ const fetchImageUrls = async (folderName, cursor = "", pageSize = 10) => {
       }
       // '&cursor='+cursor
       const response = await fetch(url);
+      const json = response.json();
       
     return {
-      images: response.json().images,
-      nextCursor: response.json().nextCursor,
+      images: json.images,
+      nextCursor: json.nextCursor,
     };
   } catch (error) {
     console.error("Error fetching images from host:", error);
