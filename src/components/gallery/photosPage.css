@@ -75,3 +75,6 @@
 .page-item a:hover::before {
   width: 100%;
 }
+.div-no-images p {
+  margin: 0 auto;
+}

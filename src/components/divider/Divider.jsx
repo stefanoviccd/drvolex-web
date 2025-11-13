@@ -10,7 +10,7 @@ function Divider() {
         <NavLink
           className="nav-link-d"
           activeClassName="active"
-          to={"/galerija/kucniNamestaj"}
+          to={"/galerija/kucni-namestaj"}
           style={{ textDecoration: "none", color: "black" }}
         >
           Kućni nameštaj
@@ -50,7 +50,7 @@ function Divider() {
         <NavLink
           className="nav-link-d"
           activeClassName="active" 
-          to={"/galerija/kancelarijskiProstor"}
+          to={"/galerija/kancelarijski-prostor"}
           style={{ textDecoration: "none", color: "black" }}
         >
           Kancelarijski prostor

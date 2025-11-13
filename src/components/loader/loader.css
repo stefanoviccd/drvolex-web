@@ -4,3 +4,9 @@
     margin-bottom: 30vh;
     opacity: 100% !important;
 }
+
+.loader p {
+    color: rgb(95, 0, 0);
+    padding: 0;
+    margin: 0;
+}

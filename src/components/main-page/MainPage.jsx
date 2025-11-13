@@ -115,7 +115,7 @@ function MainPage() {
               <div className="text">
                 <a
                   className="stand-out-from-the-offer"
-                  href="/galerija/kancelarijskiProstor"
+                  href="/galerija/kancelarijski-prostor"
                 >
                   Kancelarijski prostor
                 </a>

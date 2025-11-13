@@ -9,6 +9,7 @@
     grid-template-columns: 25% 25% 25% 25%;
     padding: 20px;
     width: 100vw;
+    flex-shrink: 0;
     
 }
 a{

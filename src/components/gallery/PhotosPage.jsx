@@ -63,6 +63,15 @@ function PhotosPage({ folderName }) {
     );
   }
 
+  if (images.length === 0) {
+    return (
+      <div className="loader">
+        <Divider></Divider>
+        <p>Trenutno nema slika iz ove grupe.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="fancybox">
       <Divider></Divider>
