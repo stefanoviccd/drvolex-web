@@ -33,6 +33,7 @@ useEffect(() => {
       setCount(5);
     }
   },
+  // eslint-disable-next-line react-hooks/exhaustive-deps
 [totalImages]);
 
   useEffect(() => {
@@ -58,6 +59,7 @@ useEffect(() => {
     window.removeEventListener("scroll", handleScroll);
   }
 },
+// eslint-disable-next-line react-hooks/exhaustive-deps
 [ready]
 );
 
