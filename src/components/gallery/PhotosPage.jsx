@@ -12,7 +12,6 @@ function PhotosPage({ folderName }) {
   const [nextCursor, setNextCursor] = useState(null);
   const [hasMore, setHasMore] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  const [page, setPage] = useState(0);
 
     const fetchImages = useCallback(async () => {
       if (isLoading || !hasMore){
@@ -20,22 +19,20 @@ function PhotosPage({ folderName }) {
       }
       setIsLoading(true);
       try {
-        const response = await fetchImageUrls(folderName, nextCursor, page);
+        const response = await fetchImageUrls(folderName, nextCursor, 20);
         const newImages = response.images || [];
         if (newImages.length === 0) {
           setHasMore(false);
         }
         setImages((prevImages) => [...prevImages, ...newImages]); // Set images
         setNextCursor(response.nextCursor); // Set next cursor for pagination
-        setPage((prevPage) => {prevPage ++});
-        console.log("page " + page)
       } catch (error) {
         console.log(error)
       } finally {
           setIsLoading(false);
         }
      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [page, isLoading, hasMore]);
+    }, [isLoading, hasMore]);
 
     const handleScroll = useCallback(() => {
 // Calculate the distance from the top of the viewport to the bottom of the page
@@ -51,7 +48,7 @@ function PhotosPage({ folderName }) {
       fetchImages();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-        }, [isLoading, hasMore, page, fetchImages]);
+        }, [isLoading, hasMore, fetchImages]);
 
     useEffect(() => {
     // Start with the first page load
