@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Divider from "../divider/Divider";
 import Fancybox from "../Fancybox";
 import "./photosPage.css";
@@ -10,66 +10,56 @@ import Photo from "./Photo";
 function PhotosPage({ folderName }) {
   const [images, setImages] = useState([]);
   const [nextCursor, setNextCursor] = useState(null);
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-  const [totalImages, setTotalImages] = useState(0);
-  const [ready, setReady] = useState(false);
-  const [count, setCount] = useState(5);
+  const [hasMore, setHasMore] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [page, setPage] = useState(0);
 
-    const fetchImages = async () => {
+    const fetchImages = useCallback(async () => {
+      if (isLoading || !hasMore){
+        return;
+      }
+      setIsLoading(true);
       try {
-        const response = await fetchImageUrls(folderName, nextCursor, count);
+        const response = await fetchImageUrls(folderName, nextCursor, page);
         const newImages = response.images || [];
         setImages((prevImages) => [...prevImages, ...newImages]); // Set images
         setNextCursor(response.nextCursor); // Set next cursor for pagination
+        if (newImages.length === 0) {
+          setHasMore(false);
+        } else {
+          setPage(page+1);
+          console.log("page="+page)
+        }
       } catch (error) {
         console.log(error)
-      }
-    };
+      } finally {
+          setIsLoading(false);
+        }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, page, isLoading, hasMore);
+
+    const handleScroll = useCallback(() => {
+
+        if (
+            window.innerHeight + document.documentElement.scrollTop >= 
+            document.documentElement.offsetHeight - 200
+        ) {
+            fetchImages();
+        }
+    }, [fetchImages]);
+
 
 useEffect(() => {
-    setImagesLoaded(imagesLoaded + 1);
-    if (imagesLoaded === totalImages) {
-      setReady(true);
-      setCount(5);
-    }
-  },
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-[totalImages]);
-
-  useEffect(() => {
-    fetchImages();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
+        fetchImages();
+        window.addEventListener('scroll', handleScroll);
     
-        if (window.scrollY + window.innerHeight >= document.body.offsetHeight - 1000
-          && ready
-        ) {
-        
-          //setReady(false);
-          fetchImages();
-        }
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  };
- 
-  window.addEventListener("scroll", handleScroll)
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-  }
-},
-// eslint-disable-next-line react-hooks/exhaustive-deps
-[ready]
-);
+    }, [handleScroll]);
 
-useEffect(
-  () => {
-    setTotalImages(images.length)
-  }, [images]
-);
-
- if (!ready) {
+ if (isLoading) {
     return (
       <div className="fancybox">
         <Divider></Divider>
