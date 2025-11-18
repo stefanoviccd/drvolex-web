@@ -1,11 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Divider from "../divider/Divider";
 import Fancybox from "../Fancybox";
 import "./photosPage.css";
 import { fetchImageUrls } from "../../service/images/image-service";
-import { GrCaretPrevious } from "react-icons/gr";
-import { GrCaretNext } from "react-icons/gr";
 import Loading from "../loader/Loading";
 import Photo from "./Photo";
 
