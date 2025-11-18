@@ -5,7 +5,7 @@ import "./about.css";
 
 function About() {
   const cncImg = "https://res.cloudinary.com/drvolex/image/upload/w_500,h_500,c_fill/v1741633882/cnc_bhjilo.jpg";
-  const obradaImg = "https://res.cloudinary.com/drvolex/image/upload/w_500,h_500,c_fill/v1741633883/wood_processing_jcgkgu.jpg";
+  const obradaImg = "https://res.cloudinary.com/drvolex/image/upload/v1741633883/kant_z6sm8i.jpg";
   const kantImg= "https://res.cloudinary.com/drvolex/image/upload/w_500,h_500,c_fill/v1741562243/kanterica2_vfmboa.jpg";
   const namestajImg = "https://res.cloudinary.com/drvolex/image/upload/w_500,h_500,c_fill/v1741458089/dom9_hybqo6.jpg";
 
