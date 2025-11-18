@@ -22,42 +22,48 @@ function PhotosPage({ folderName }) {
       try {
         const response = await fetchImageUrls(folderName, nextCursor, page);
         const newImages = response.images || [];
-        setImages((prevImages) => [...prevImages, ...newImages]); // Set images
-        setNextCursor(response.nextCursor); // Set next cursor for pagination
         if (newImages.length === 0) {
           setHasMore(false);
-        } else {
-          setPage(page+1);
-          console.log("page="+page)
         }
+        setImages((prevImages) => [...prevImages, ...newImages]); // Set images
+        setNextCursor(response.nextCursor); // Set next cursor for pagination
+        setPage((prevPage) => {prevPage ++});
+        console.log("page " + page)
       } catch (error) {
         console.log(error)
       } finally {
           setIsLoading(false);
         }
      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, page, isLoading, hasMore);
+    }, [page, isLoading, hasMore]);
 
     const handleScroll = useCallback(() => {
+// Calculate the distance from the top of the viewport to the bottom of the page
+    const scrollPosition = document.documentElement.scrollTop + window.innerHeight;
+    // Calculate the total height of the content
+    const totalHeight = document.documentElement.offsetHeight;
+    
+    // Check if the user is within 100px of the bottom
+    const isNearBottom = scrollPosition >= totalHeight - 100; 
 
-        if (
-            window.innerHeight + document.documentElement.scrollTop >= 
-            document.documentElement.offsetHeight - 200
-        ) {
-            fetchImages();
-        }
-    }, [fetchImages]);
+    // If near the bottom AND not currently loading AND there's more data to fetch
+    if (isNearBottom && !isLoading && hasMore) {
+      fetchImages();
+    }
+        }, [isLoading, hasMore, page, fetchImages]);
 
+    useEffect(() => {
+    // Start with the first page load
+    fetchImages();
+  }, []);
 
 useEffect(() => {
-        fetchImages();
-        window.addEventListener('scroll', handleScroll);
+    // Attach the event listener to the window
+    window.addEventListener('scroll', handleScroll);
     
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [handleScroll]);
+    // Cleanup: Remove the listener when the component unmounts
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
 
  if (isLoading) {
     return (
@@ -87,6 +93,7 @@ useEffect(() => {
           ))}
         </Fancybox>
       </div>
+      
   
     </div>
   );

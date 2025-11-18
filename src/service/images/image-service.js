@@ -2,14 +2,14 @@
 // Function to fetch image URLs from image host platform
 const fetchImageUrls = async (folderName, cursor = "", pageSize = 10) => {
   try {
+    console.log("pagesize "+pageSize)
       var url = '/.netlify/functions/proxy?folderName='+folderName+'&pageSize='+pageSize
       if (cursor !== null) {
         url = url+'&cursor='+cursor;
       }
 
-      const response = fetch(url);
+      const response = await fetch(url);
       const json = await response.json();
-  
       
     return {
       images: json.images,
