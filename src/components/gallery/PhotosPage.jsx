@@ -50,11 +50,13 @@ function PhotosPage({ folderName }) {
     if (isNearBottom && !isLoading && hasMore) {
       fetchImages();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [isLoading, hasMore, page, fetchImages]);
 
     useEffect(() => {
     // Start with the first page load
     fetchImages();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 useEffect(() => {
