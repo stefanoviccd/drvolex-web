@@ -14,7 +14,7 @@ import Contact from "./components/contact/Contact";
 import About from "./components/about_page/About";
 import NotFound from "./components/not_found/NotFound";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import PhotosPage from "./components/gallery/PhotosPage";
+import PhotosPageNew from "./components/gallery/PhotosPageNew";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -66,10 +66,10 @@ function App() {
               path="/galerija/kucni-namestaj"
               element={
                 <>
-                  <PhotosPage
+                  <PhotosPageNew
                     key="living-rooms"
                     folderName={"drvolex/living-rooms"}
-                  ></PhotosPage>
+                  ></PhotosPageNew>
                 </>
               }
             />
@@ -77,10 +77,10 @@ function App() {
               path="/galerija/kuhinje"
               element={
                 <>
-                  <PhotosPage
+                  <PhotosPageNew
                     key="kitchens"
                     folderName={"drvolex/kitchens"}
-                  ></PhotosPage>
+                  ></PhotosPageNew>
                 </>
               }
             />
@@ -88,10 +88,10 @@ function App() {
               path="/galerija/kupatila"
               element={
                 <>
-                  <PhotosPage
+                  <PhotosPageNew
                     key="bathrooms"
                     folderName={"drvolex/bathrooms"}
-                  ></PhotosPage>
+                  ></PhotosPageNew>
                 </>
               }
             />
@@ -99,10 +99,10 @@ function App() {
               path="/galerija/police"
               element={
                 <>
-                  <PhotosPage
+                  <PhotosPageNew
                     key="shelfs"
                     folderName={"drvolex/shelfs"}
-                  ></PhotosPage>
+                  ></PhotosPageNew>
                 </>
               }
             />
@@ -110,10 +110,10 @@ function App() {
               path="/galerija/kancelarijski-prostor"
               element={
                 <>
-                  <PhotosPage
+                  <PhotosPageNew
                     key="workspaces"
                     folderName={"drvolex/workspaces"}
-                  ></PhotosPage>
+                  ></PhotosPageNew>
                 </>
               }
             />
@@ -121,10 +121,10 @@ function App() {
               path="/galerija/plakari"
               element={
                 <>
-                  <PhotosPage
+                  <PhotosPageNew
                     key="wardrobes"
                     folderName={"drvolex/wardrobes"}
-                  ></PhotosPage>
+                  ></PhotosPageNew>
                 </>
               }
             />

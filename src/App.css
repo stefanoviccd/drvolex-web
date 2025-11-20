@@ -184,6 +184,9 @@ html, body, #root {
     /*  Tell the main content to take up all available vertical space */
     flex-grow: 1 !important;
 }
+button {
+    cursor: pointer;
+}
 
 
 
