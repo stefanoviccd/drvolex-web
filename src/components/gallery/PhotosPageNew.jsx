@@ -13,10 +13,12 @@ const PhotosPageNew = ({ folderName }) => {
   const [images, setImages] = useState([]);
   const [hasMore, setHasMore] = useState(true);
   const [nextCursor, setNextCursor] = useState(null);
-  const itemsPerPage = 12; // Adjust based on your needs
+  const itemsPerPage = 12;
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const response = await fetchImageUrls(folderName, nextCursor, 20);
         setItems(response.images || []);
         setNextCursor(response.nextCursor)
@@ -24,7 +26,9 @@ const PhotosPageNew = ({ folderName }) => {
 
       } catch (error) {
         console.error('Error fetching data:', error);
-      }
+      } finally {
+          setIsLoading(false);
+        }
     };
     fetchData();
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -48,11 +52,23 @@ const PhotosPageNew = ({ folderName }) => {
           behavior: 'smooth'
         })
   }
+
+   if (isLoading && images.length === 0) {
+    return (
+      <div className="fancybox">
+        <Divider></Divider>
+        <Loading />
+      </div>
+    );
+  }
+
     if (images.length === 0) {
      return (
       <div className="loader">
         <Divider></Divider>
         <p>Trenutno nema slika iz ove grupe.</p>
+        <button className='btn-back-to-top'
+             onClick={scrollToTheTop}><IoChevronUpCircleSharp /><br /> Nazad na početak</button>
       </div>
      );
   } 

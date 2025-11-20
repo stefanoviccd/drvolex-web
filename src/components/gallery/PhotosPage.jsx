@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Divider from "../divider/Divider";
 import Fancybox from "../Fancybox";
 import "./photosPage.css";
@@ -12,7 +12,6 @@ function PhotosPage({ folderName }) {
   const [nextCursor, setNextCursor] = useState(null);
   const [hasMore, setHasMore] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-
     const fetchImages = useCallback(async () => {
       if (isLoading || !hasMore){
         return;
@@ -64,6 +63,9 @@ useEffect(() => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
+
+
+
  if (isLoading) {
     return (
       <div className="fancybox">
@@ -87,8 +89,9 @@ useEffect(() => {
       <Divider></Divider>
       <div className="container">
         <Fancybox className="fancybox">
-          {images.map((img) => (
-            <Photo imageUrl={img.url}></Photo>
+          {images.map((index, img) => (
+        <Photo imageUrl={img.url}></Photo>
+           
           ))}
         </Fancybox>
       </div>
