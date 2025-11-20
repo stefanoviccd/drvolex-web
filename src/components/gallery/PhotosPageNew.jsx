@@ -67,8 +67,6 @@ const PhotosPageNew = ({ folderName }) => {
       <div className="loader">
         <Divider></Divider>
         <p>Trenutno nema slika iz ove grupe.</p>
-        <button className='btn-back-to-top'
-             onClick={scrollToTheTop}><IoChevronUpCircleSharp /><br /> Nazad na početak</button>
       </div>
      );
   } 
@@ -78,8 +76,11 @@ const PhotosPageNew = ({ folderName }) => {
       next={fetchMoreData}
       hasMore={hasMore}
       loader={ <Loading />}
-      endMessage={ <button className='btn-back-to-top'
-             onClick={scrollToTheTop}><IoChevronUpCircleSharp /><br /> Nazad na početak</button>}
+      endMessage={<div>
+         <button className='btn-back-to-top'
+             onClick={scrollToTheTop}><IoChevronUpCircleSharp /><br /> Nazad na početak</button>
+      </div>
+     }
     >
     <div>
        <Divider></Divider>
