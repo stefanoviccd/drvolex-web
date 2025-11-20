@@ -76,7 +76,7 @@ const PhotosPageNew = ({ folderName }) => {
       next={fetchMoreData}
       hasMore={hasMore}
       loader={ <Loading />}
-      endMessage={<div>
+      endMessage={<div className='div-back-to-the-top'>
          <button className='btn-back-to-top'
              onClick={scrollToTheTop}><IoChevronUpCircleSharp /><br /> Nazad na početak</button>
       </div>
