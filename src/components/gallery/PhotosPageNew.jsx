@@ -46,6 +46,10 @@ const PhotosPageNew = ({ folderName }) => {
     }, 500);
   };
 
+  const optimizeUrl = (url) => {
+      return url.split(folderName)[0] + "w_400,c_fill,f_auto,q_auto" + url.split(folderName)[1]
+  }
+
   const scrollToTheTop = () => {
       window.scrollTo({
           top: 0,
@@ -86,7 +90,7 @@ const PhotosPageNew = ({ folderName }) => {
        <Divider></Divider>
        <div className="container">
             <Fancybox className="fancybox">
-                {images.map((img) => ( <Photo imageUrl={img.url} displayName={"bla"}></Photo> ))}
+                {images.map((img) => ( <Photo imageUrl={optimizeUrl(img.url)}></Photo> ))}
             </Fancybox>
       </div>
     </div>
