@@ -47,7 +47,7 @@ const PhotosPageNew = ({ folderName }) => {
   };
 
   const optimizeUrl = (url) => {
-      return url.split("upload")[0] + "upload/w_400,c_fill,f_auto,q_auto" + url.split("upload")[1]
+      return url.split("upload")[0] + "upload/f_auto,q_auto" + url.split("upload")[1]
   }
 
   const scrollToTheTop = () => {
