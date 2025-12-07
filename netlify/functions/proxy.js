@@ -51,6 +51,8 @@ const fetchImagesFromCloudinary = async (
       },
     });
 
+    console.log(response.data.resources)
+
     return {
       images: response.data.resources,
       nextCursor: response.data.next_cursor,
